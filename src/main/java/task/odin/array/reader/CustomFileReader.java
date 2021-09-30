@@ -1,5 +1,6 @@
 package task.odin.array.reader;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import task.odin.array.exeption.CustomException;
@@ -18,12 +19,11 @@ public class CustomFileReader {
     private static final Logger logger = LogManager.getLogger();
 
     public static String readAllFile(String filepath) throws CustomException{
-        BufferedReader bf = null;
         String line;
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         try {
-            bf = new BufferedReader(new FileReader(filepath));
+            BufferedReader  bf = new BufferedReader(new FileReader(filepath));
             while ((line = bf.readLine()) != null) {
                 if (fileValidator(line)) {
                     list.add(line);
@@ -32,7 +32,7 @@ public class CustomFileReader {
         } catch (FileNotFoundException e) {
             throw new CustomException("File is not found",e);
         } catch (IOException ex) {
-            throw new CustomException("File is empty",ex);
+            logger.log(Level.ERROR,ex.getMessage());
         }
 
         for (String s : list) {

@@ -1,7 +1,12 @@
 package task.odin.array.arrayaction.impl;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import task.odin.array.arrayaction.ArrayMathAction;
 import task.odin.array.entity.CustomNumber;
+
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +14,7 @@ import java.util.List;
 
 public class ArrayMathActionImpl implements ArrayMathAction {
 
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public long sum(CustomNumber arr) {
@@ -38,13 +44,17 @@ public class ArrayMathActionImpl implements ArrayMathAction {
     }
 
     @Override
-    public double divide(CustomNumber arr) {
+    public double divide(CustomNumber arr){
         int[] temp = arr.getArr();
 
         double firstDivideElement= temp[0];
-        for (int i = 1; i < temp.length; i++) {
-            firstDivideElement /=temp[i];
+        try {
+            for (int i = 1; i < temp.length; i++) {
+                firstDivideElement /= temp[i];
 
+            }
+        } catch (ArithmeticException e) {
+           logger.log(Level.ERROR,e.getMessage());
         }
         return firstDivideElement;
     }
@@ -65,8 +75,9 @@ public class ArrayMathActionImpl implements ArrayMathAction {
         int[] temp = arr.getArr();
         List<Integer> negativeNumbers=new ArrayList<>();
         for (int i = 0; i < temp.length; i++) {
-            if(temp[i] < 0)
-            negativeNumbers.add(temp[i]);
+            if(temp[i] < 0) {
+                negativeNumbers.add(temp[i]);
+            }
         }
         return negativeNumbers.size();
     }
@@ -76,8 +87,9 @@ public class ArrayMathActionImpl implements ArrayMathAction {
         int[] temp = arr.getArr();
         List<Integer> postiveNumbers=new ArrayList<>();
         for (int i = 0; i < temp.length; i++) {
-            if(temp[i] >= 0)
+            if(temp[i] >= 0) {
                 postiveNumbers.add(temp[i]);
+            }
         }
         return postiveNumbers.size();
     }

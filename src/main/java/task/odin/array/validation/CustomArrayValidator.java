@@ -3,7 +3,7 @@ package task.odin.array.validation;
 import java.util.regex.Pattern;
 
 public class CustomArrayValidator {
-    private static final String regex_isnumber ="^[-?[\\d]+\\s]+$";
+    private static final String regex_isnumber ="^[-?\\d+\\s]+$";
 
 
     public static boolean fileValidator(String str){

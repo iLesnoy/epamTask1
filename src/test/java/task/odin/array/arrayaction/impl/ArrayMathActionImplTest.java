@@ -1,5 +1,8 @@
 package task.odin.array.arrayaction.impl;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import task.odin.array.arrayaction.impl.ArrayMathActionImpl;
 import task.odin.array.entity.CustomNumber;
@@ -15,12 +18,14 @@ public class ArrayMathActionImplTest {
     private final ArrayMathActionImpl factory = new ArrayMathActionImpl();
     private final CustomNumber cs = new CustomNumber();
     private ArrayMathActionImpl action = new ArrayMathActionImpl();
+    private static final Logger logger = LogManager.getLogger();
 
 
     public void serviceTestMethod() throws CustomException {
         CustomFileService cfs = new CustomFileService();
         String filepath = "C:\\Users\\Lenovo\\IdeaProjects\\epamTask1\\.idea\\file\\task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
+        logger.log(Level.INFO,"serviceTestMethod completed successfully");
     }
 
     @Test

@@ -1,9 +1,8 @@
 package task.odin.array.entity;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import task.odin.array.exeption.CustomException;
+
 
 import java.util.Arrays;
 
