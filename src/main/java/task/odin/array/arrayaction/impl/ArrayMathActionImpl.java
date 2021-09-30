@@ -65,8 +65,9 @@ public class ArrayMathActionImpl implements ArrayMathAction {
         int[] temp = arr.getArr();
         List<Integer> negativeNumbers=new ArrayList<>();
         for (int i = 0; i < temp.length; i++) {
-            if(temp[i] < 0)
-            negativeNumbers.add(temp[i]);
+            if(temp[i] < 0) {
+                negativeNumbers.add(temp[i]);
+            }
         }
         return negativeNumbers.size();
     }
@@ -76,8 +77,9 @@ public class ArrayMathActionImpl implements ArrayMathAction {
         int[] temp = arr.getArr();
         List<Integer> postiveNumbers=new ArrayList<>();
         for (int i = 0; i < temp.length; i++) {
-            if(temp[i] >= 0)
+            if(temp[i] >= 0) {
                 postiveNumbers.add(temp[i]);
+            }
         }
         return postiveNumbers.size();
     }
