@@ -1,16 +1,13 @@
 package task.odin.array.arrayaction.impl;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import task.odin.array.arrayaction.ArrayMathAction;
 import task.odin.array.entity.CustomNumber;
 
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class ArrayMathActionImpl implements ArrayMathAction {
 
@@ -18,80 +15,48 @@ public class ArrayMathActionImpl implements ArrayMathAction {
 
     @Override
     public long sum(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        long sumResult = Arrays.stream(temp).sum();
-        return sumResult;
+        return Arrays.stream(arr.getArr())
+                .sum();
     }
 
     @Override
     public int difference(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        int diffResult = temp[0];
-        for (int i = 1; i < temp.length; i++) {
-            diffResult -=temp[i];
-        }
-        return diffResult;
+        return  IntStream.of(arr.getArr())
+                .reduce((a,b)->a-b).getAsInt();
     }
 
     @Override
     public int multiplication(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        int multiplicatResult= 1;
-        for (int i = 0; i < temp.length; i++) {
-            multiplicatResult *=temp[i];
-        }
-        return multiplicatResult;
+
+        return IntStream.of(arr.getArr())
+                .reduce(1,(x, y)->x*y);
     }
 
     @Override
     public double divide(CustomNumber arr){
-        int[] temp = arr.getArr();
-
-        double firstDivideElement= temp[0];
-        try {
-            for (int i = 1; i < temp.length; i++) {
-                firstDivideElement /= temp[i];
-
-            }
-        } catch (ArithmeticException e) {
-           logger.log(Level.ERROR,e.getMessage());
-        }
-        return firstDivideElement;
+        return IntStream.of(arr.getArr())
+                .reduce(1,(x, y)->x/y);
     }
 
     @Override
-    public int medianArray(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        int sum = 0;
-        for(int i : temp) {
-            sum += i;
-        }
-
-        return sum / arr.getArrLenght();
+    public double medianArray(CustomNumber arr) {
+        return IntStream.of(arr.getArr())
+                .summaryStatistics()
+                .getAverage();
     }
 
     @Override
     public int negativeArrElements(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        List<Integer> negativeNumbers=new ArrayList<>();
-        for (int i = 0; i < temp.length; i++) {
-            if(temp[i] < 0) {
-                negativeNumbers.add(temp[i]);
-            }
-        }
-        return negativeNumbers.size();
+
+        return (int) IntStream.of(arr.getArr())
+                .filter(p->p<0).count();
     }
 
     @Override
     public int positiveArrElements(CustomNumber arr) {
-        int[] temp = arr.getArr();
-        List<Integer> postiveNumbers=new ArrayList<>();
-        for (int i = 0; i < temp.length; i++) {
-            if(temp[i] >= 0) {
-                postiveNumbers.add(temp[i]);
-            }
-        }
-        return postiveNumbers.size();
+
+        return (int) IntStream.of(arr.getArr())
+                .filter(p->p>=0).count();
     }
 
 }

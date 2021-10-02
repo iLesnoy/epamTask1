@@ -13,7 +13,7 @@ public interface ArrayMathAction {
 
     double divide(CustomNumber arr) throws CustomException;
 
-    int medianArray(CustomNumber arr);
+    double medianArray(CustomNumber arr);
 
     int negativeArrElements(CustomNumber arr);
 
