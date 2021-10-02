@@ -15,8 +15,8 @@ public class ArrayMathActionImpl implements ArrayMathAction {
 
     @Override
     public long sum(CustomNumber arr) {
-        return Arrays.stream(arr.getArr())
-                .sum();
+        return IntStream.of(arr.getArr())
+                .reduce(0, Integer::sum);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ArrayMathActionImpl implements ArrayMathAction {
     @Override
     public double divide(CustomNumber arr){
         return IntStream.of(arr.getArr())
-                .reduce(1,(x, y)->x/y);
+                .reduce((x, y)->x/y).stream().sum();
     }
 
     @Override

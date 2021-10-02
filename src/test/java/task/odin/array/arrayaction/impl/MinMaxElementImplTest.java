@@ -18,7 +18,7 @@ public class MinMaxElementImplTest {
 
     public void serviceTestMethod() throws CustomException{
         CustomFileService cfs = new CustomFileService();
-        String filepath = "C:\\Users\\Lenovo\\IdeaProjects\\epamTask1\\.idea\\file\\task1.txt";
+        String filepath = "main/resources/file/task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
     }
 
