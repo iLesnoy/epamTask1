@@ -1,40 +1,38 @@
 package task.odin.array.arrayaction.impl;
 
-import org.junit.Test;
-import task.odin.array.arrayaction.impl.ArrayMathActionImpl;
-import task.odin.array.arrayaction.impl.MinMaxElementImpl;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import task.odin.array.entity.CustomNumber;
 import task.odin.array.exeption.CustomException;
 import task.odin.array.service.CustomFileService;
 
-import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 public class MinMaxElementImplTest {
 
     private final CustomNumber cs = new CustomNumber();
 
-
-    public void serviceTestMethod() throws CustomException{
+    @BeforeEach
+    public void serviceTestMethod() throws CustomException {
         CustomFileService cfs = new CustomFileService();
         String filepath = "main/resources/file/task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
     }
 
     @Test
-    public void minElemntSerch() throws CustomException{
-        serviceTestMethod();
+    @DisplayName("arrayMinElemSerch")
+    public void minElemntSerch(){
         MinMaxElementImpl element = new MinMaxElementImpl();
-        int compareMinResult = -23;
-        assertEquals(element.minElemntSerch(cs),compareMinResult);
+        int expectedMinResult = -5;
+        Assertions.assertEquals(element.minElemntSerch(cs), expectedMinResult);
     }
 
     @Test
-    public void maxElemntSerch() throws CustomException {
-        serviceTestMethod();
+    @DisplayName("arrayMaxElemSerch")
+    public void maxElemntSerch(){
         MinMaxElementImpl element = new MinMaxElementImpl();
-        int compareMaxResult = 34;
-        assertEquals(element.maxElemntSerch(cs),compareMaxResult);
+        int expectedMaxResult = 294;
+        Assertions.assertEquals(element.maxElemntSerch(cs), expectedMaxResult);
     }
 }

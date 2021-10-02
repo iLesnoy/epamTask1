@@ -9,15 +9,13 @@ public class MinMaxElementImpl implements MinMaxElement {
 
     @Override
     public int minElemntSerch(CustomNumber arr){
-        int[] temp = arr.getArr();
-        int min = Arrays.stream(temp).min().getAsInt();
-        return min;
+
+        return Arrays.stream(arr.getArr()).min().getAsInt();
     }
 
     @Override
     public int maxElemntSerch(CustomNumber arr){
-        int[] temp = arr.getArr();
-        int max = Arrays.stream(temp).max().getAsInt();
-        return max;
+
+        return Arrays.stream(arr.getArr()).max().getAsInt();
     }
 }

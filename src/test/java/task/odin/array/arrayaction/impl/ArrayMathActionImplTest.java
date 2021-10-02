@@ -1,79 +1,70 @@
 package task.odin.array.arrayaction.impl;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Test;
-import task.odin.array.arrayaction.impl.ArrayMathActionImpl;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import task.odin.array.entity.CustomNumber;
 import task.odin.array.exeption.CustomException;
 import task.odin.array.service.CustomFileService;
-
-import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 public class ArrayMathActionImplTest {
 
     private final ArrayMathActionImpl factory = new ArrayMathActionImpl();
     private final CustomNumber cs = new CustomNumber();
-    private ArrayMathActionImpl action = new ArrayMathActionImpl();
+    private final ArrayMathActionImpl action = new ArrayMathActionImpl();
     private static final Logger logger = LogManager.getLogger();
 
 
+    @BeforeEach
+    @DisplayName("serviceTestMethod")
     public void serviceTestMethod() throws CustomException {
         CustomFileService cfs = new CustomFileService();
         String filepath = "main/resources/file/task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
-        logger.log(Level.INFO,"serviceTestMethod completed successfully");
     }
 
     @Test
-    public void sum() throws CustomException {
-        serviceTestMethod();
-        int compareResult = 63;
-        assertEquals(factory.sum(cs),compareResult);
+    @DisplayName("arrayElementsSum")
+    public void sum() {
+        Assertions.assertEquals(factory.sum(cs),296);
     }
 
     @Test
-    public void difference() throws CustomException {
-        serviceTestMethod();
-        int compareResult = 3;
-        assertEquals(factory.difference(cs),compareResult);
+    @DisplayName("arrayElementsDifference")
+    public void difference() {
+        Assertions.assertEquals(factory.difference(cs),292);
     }
 
     @Test
-    public void multiplication() throws CustomException{
-        serviceTestMethod();
-        int compareResult = 4878720;
-        assertEquals(factory.multiplication(cs),compareResult);
+    @DisplayName("arrayElementsMultiplication")
+    public void multiplication(){
+        Assertions.assertEquals(factory.multiplication(cs),41160);
     }
 
     @Test
-    public void divide() throws CustomException{
-        serviceTestMethod();
-        double compareResult = 16.5;
-        assertEquals(factory.divide(cs),compareResult,0.01);
+    @DisplayName("arrayElementsDivide")
+    public void divide(){
+        Assertions.assertEquals(factory.divide(cs),2.0,0.01);
     }
 
     @Test
-    public void medianArray() throws CustomException{
-        serviceTestMethod();
-        double expectedMedian  = 7.875;
-        assertEquals(action.medianArray(cs),expectedMedian,0.001);
+    @DisplayName("arrayMedian")
+    public void medianArray(){
+        Assertions.assertEquals(action.medianArray(cs),59.2,0.1);
     }
 
     @Test
-    public void negativeArrElements() throws CustomException{
-        serviceTestMethod();
-        int expNegativeNumbAmount = 2;
-        assertEquals(action.negativeArrElements(cs),expNegativeNumbAmount);
+    @DisplayName("arrayNegativeElements")
+    public void negativeArrElements(){
+        Assertions.assertEquals(action.negativeArrElements(cs),2);
     }
 
     @Test
-    public void positiveArrElements() throws CustomException{
-        serviceTestMethod();
-        int expPositiveNumbAmount = 6;
-        assertEquals(action.positiveArrElements(cs),expPositiveNumbAmount);
+    @DisplayName("arrayPositiveElements")
+    public void positiveArrElements(){
+        Assertions.assertEquals(action.positiveArrElements(cs),3);
     }
 }
