@@ -38,14 +38,14 @@ public class ArrayMathActionImplTest {
     @Test
     public void difference() throws CustomException {
         serviceTestMethod();
-        int compareResult = 31;
+        int compareResult = 3;
         assertEquals(factory.difference(cs),compareResult);
     }
 
     @Test
     public void multiplication() throws CustomException{
         serviceTestMethod();
-        int compareResult = 66;
+        int compareResult = 4878720;
         assertEquals(factory.multiplication(cs),compareResult);
     }
 
@@ -59,8 +59,8 @@ public class ArrayMathActionImplTest {
     @Test
     public void medianArray() throws CustomException{
         serviceTestMethod();
-        int expectedMedian  = 10;
-        assertEquals(action.medianArray(cs),expectedMedian);
+        double expectedMedian  = 7.875;
+        assertEquals(action.medianArray(cs),expectedMedian,0.001);
     }
 
     @Test
