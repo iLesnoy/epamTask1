@@ -39,7 +39,6 @@ public class CustomFileReader {
             sb.append(s);
         }
 
-        String fullString = sb.toString();
-        return fullString;
+        return sb.toString();
     }
 }
