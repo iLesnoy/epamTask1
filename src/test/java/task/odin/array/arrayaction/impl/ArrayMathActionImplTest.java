@@ -24,6 +24,7 @@ public class ArrayMathActionImplTest {
         CustomFileService cfs = new CustomFileService();
         String filepath = "main/resources/file/task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
+        logger.info("serviceTestMethod is success");
     }
 
     @Test
