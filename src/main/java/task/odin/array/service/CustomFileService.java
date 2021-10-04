@@ -6,10 +6,7 @@ import task.odin.array.parser.CustomArrayParser;
 import task.odin.array.reader.CustomFileReader;
 
 
-
-
 public class CustomFileService {
-
 
     public int[] getIntArrayFromFile(String filepath) throws CustomException{
         String readString = CustomFileReader.readAllFile(filepath);

@@ -4,9 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import task.odin.array.arrayaction.ArrayMathAction;
 import task.odin.array.entity.CustomNumber;
+import task.odin.array.exeption.CustomException;
 
 
-import java.util.*;
 import java.util.stream.IntStream;
 
 public class ArrayMathActionImpl implements ArrayMathAction {
@@ -33,7 +33,7 @@ public class ArrayMathActionImpl implements ArrayMathAction {
     }
 
     @Override
-    public double divide(CustomNumber arr){
+    public double divide(CustomNumber arr)throws CustomException {
         return IntStream.of(arr.getArr())
                 .reduce((x, y)->x/y).stream().sum();
     }

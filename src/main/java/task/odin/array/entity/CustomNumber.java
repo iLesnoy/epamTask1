@@ -49,9 +49,9 @@ public class CustomNumber {
 
     @Override
     public String toString() {
-        var ab =  new StringBuilder().
+        var str =  new StringBuilder().
                 append(Arrays.toString(arr));
-        return ab.toString();
+        return str.toString();
     }
 
 }

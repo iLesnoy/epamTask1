@@ -1,11 +1,7 @@
 package task.odin.array.arrayaction.impl;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.apache.logging.log4j.*;
+import org.junit.jupiter.api.*;
 import task.odin.array.entity.CustomNumber;
 import task.odin.array.exeption.CustomException;
 import task.odin.array.service.CustomFileService;
@@ -45,10 +41,15 @@ public class ArrayMathActionImplTest {
         Assertions.assertEquals(factory.multiplication(cs),41160);
     }
 
-    @Test
+    @Test/*(expected = ArithmeticException.class)*/
     @DisplayName("arrayElementsDivide")
-    public void divide(){
-        Assertions.assertEquals(factory.divide(cs),2.0,0.01);
+    public void divide() {
+        try {
+            Assertions.assertEquals(factory.divide(cs),2.0,0.01);
+        } catch (CustomException e) {
+            logger.log(Level.INFO,e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Test

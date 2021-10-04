@@ -22,7 +22,7 @@ public class CustomFileReader {
     public static String readAllFile(String filepath) throws CustomException {
         String line;
         List<String> list = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
+        StringBuilder finalStr = new StringBuilder();
         try {
             BufferedReader  bf = new BufferedReader(new FileReader(filepath));
             while ((line = bf.readLine()) != null) {
@@ -37,10 +37,10 @@ public class CustomFileReader {
             logger.log(Level.INFO,ex.getMessage());
             throw new CustomException(ex.getMessage());
         }
-        for (String s : list) {
-            sb.append(s);
+        for (String str : list) {
+            finalStr.append(str);
         }
 
-        return sb.toString();
+        return finalStr.toString();
     }
 }

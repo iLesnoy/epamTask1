@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class CustomFileReaderTest {
 
-    public static java.util.logging.Logger logger = Logger.getLogger(String.valueOf(CustomFileReaderTest.class));
+    public static Logger logger = Logger.getLogger(String.valueOf(CustomFileReaderTest.class));
 
     @Test
     public void isArrFileEmpty(){
