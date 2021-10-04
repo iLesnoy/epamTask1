@@ -1,8 +1,10 @@
 package task.odin.array.validation;
 
+
 import java.util.regex.Pattern;
 
 public class CustomArrayValidator {
+
     private static final String regex_isnumber ="^[-?\\d+\\s]+$";
 
 

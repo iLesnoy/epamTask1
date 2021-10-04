@@ -22,11 +22,10 @@ public class ArrayElementChangeImplTest {
         ArrayElementChange change = new ArrayElementChange();
         CustomNumber cs = new CustomNumber();
         CustomFileService cfs = new CustomFileService();
-        String filepath = "main/resources/file/task1.txt";
+        String filepath = "resources/file/task1.txt";
         int index = 0;
         String value = "-999";
         cfs.setIntArrayIntoEntity(cs, filepath);
-
         int [] expectResultArr = {-999, 2, -5, -2, 7};
         Assertions.assertEquals(Arrays.toString(change.arrElementChange(cs,index,value)),
                 Arrays.toString(expectResultArr));

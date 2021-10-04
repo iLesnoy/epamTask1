@@ -22,7 +22,7 @@ public class ArrayMathActionImplTest {
     @DisplayName("serviceTestMethod")
     public void serviceTestMethod() throws CustomException {
         CustomFileService cfs = new CustomFileService();
-        String filepath = "main/resources/file/task1.txt";
+        String filepath = "resources/file/task1.txt";
         cfs.setIntArrayIntoEntity(cs, filepath);
         logger.info("serviceTestMethod is success");
     }

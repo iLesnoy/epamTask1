@@ -15,9 +15,7 @@ public class ArrayElementChange {
         List<Integer> list = Arrays.stream(arr.getArr()).boxed().collect(toList());
         List<String> strings = list.stream().map(Object::toString)
                 .collect(Collectors.toList());
-        List<String> changedArr = strings.stream()
-                .map(v-> v.replace(strings.get(index),value))
-                .collect(toList());
-        return changedArr.toArray();
+        return strings.stream()
+                .map(v -> v.replace(strings.get(index), value)).toArray();
     }
 }
