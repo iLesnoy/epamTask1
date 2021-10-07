@@ -18,4 +18,12 @@ public interface ArrayMathAction {
     int negativeArrElements(CustomNumber arr);
 
     int positiveArrElements(CustomNumber arr);
+
+    int [] elementChange (CustomNumber arr, int index, int value);
+
+    public int minElementSearch(CustomNumber arr);
+
+    public int maxElementSearch(CustomNumber arr);
+
+
 }

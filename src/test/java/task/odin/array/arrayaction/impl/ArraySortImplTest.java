@@ -10,7 +10,7 @@ public class ArraySortImplTest {
 
     private final CustomNumber cs = new CustomNumber();
     private final ArraySortImpl sort = new ArraySortImpl();
-    private final int [] expectedArr = {-5,-2,2,7,294};
+    private final int [] expectedArr = {-5,-2,0,7,294};
 
     @BeforeEach
     public void serviceTestMethod() throws CustomException{

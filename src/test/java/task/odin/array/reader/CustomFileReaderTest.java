@@ -5,23 +5,24 @@ import org.junit.jupiter.api.DisplayName;
 import task.odin.array.exeption.CustomException;
 
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static org.junit.Assert.*;
 
 public class CustomFileReaderTest {
 
-    public static Logger logger = Logger.getLogger(String.valueOf(CustomFileReaderTest.class));
+    public static Logger logger = LogManager.getLogger(CustomFileReaderTest.class);
 
     @Test
     public void isArrFileEmpty(){
         try{
-            String checkString = CustomFileReader.readAllFile("resources/task1.txt");
+            String checkString = CustomFileReader.readAllFile("resources/file/task1.txt");
             assertFalse(checkString.isEmpty());
 
         }catch (CustomException e){
-            logger.log(Level.INFO,e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -30,11 +31,11 @@ public class CustomFileReaderTest {
     public void readAllFile()  {
         try {
             String checkString = CustomFileReader.readAllFile("resources/file/task1.txt");
-            String compareString = "294 2 -5 -2 7";
+            String compareString = "294 0 -5 -2 7";
             assertEquals(checkString, compareString);
-            logger.info("file read successfully");
+
         } catch (CustomException e) {
-            logger.log(Level.INFO,e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 }

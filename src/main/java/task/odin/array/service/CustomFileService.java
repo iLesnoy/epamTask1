@@ -13,7 +13,7 @@ public class CustomFileService {
         return CustomArrayParser.parse(readString);
     }
 
-    public void setIntArrayIntoEntity(CustomNumber cn, String filepath) throws CustomException{
-        cn.setArr(getIntArrayFromFile(filepath));
+    public void setIntArrayIntoEntity(CustomNumber arr, String filepath) throws CustomException{
+        arr.setArr(getIntArrayFromFile(filepath));
     }
 }
