@@ -19,7 +19,7 @@ public class CustomFileReaderTest {
     public void isArrFileEmpty(){
         try{
             String checkString = CustomFileReader.readAllFile("resources/file/task1.txt");
-            assertFalse(checkString.isEmpty());
+            assertTrue(checkString.isEmpty());
 
         }catch (CustomException e){
             logger.error(e.getMessage());
