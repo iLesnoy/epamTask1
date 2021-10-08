@@ -1,7 +1,7 @@
 package task.odin.array.arrayaction;
 
 import task.odin.array.entity.CustomNumber;
-import task.odin.array.exeption.CustomException;
+import task.odin.array.exception.CustomException;
 
 public interface ArrayMathAction {
 

@@ -2,7 +2,7 @@ package task.odin.array.reader;
 
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import task.odin.array.exeption.CustomException;
+import task.odin.array.exception.CustomException;
 
 
 

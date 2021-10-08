@@ -1,7 +1,7 @@
 package task.odin.array.service;
 
 import task.odin.array.entity.CustomNumber;
-import task.odin.array.exeption.CustomException;
+import task.odin.array.exception.CustomException;
 import task.odin.array.parser.CustomArrayParser;
 import task.odin.array.reader.CustomFileReader;
 
