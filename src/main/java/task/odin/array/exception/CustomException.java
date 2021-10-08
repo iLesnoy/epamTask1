@@ -1,4 +1,4 @@
-package task.odin.array.exeption;
+package task.odin.array.exception;
 
 public class CustomException extends Exception {
 

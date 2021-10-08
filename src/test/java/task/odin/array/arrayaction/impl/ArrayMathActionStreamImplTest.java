@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import task.odin.array.entity.CustomNumber;
-import task.odin.array.exeption.CustomException;
+import task.odin.array.exception.CustomException;
 import task.odin.array.service.CustomFileService;
 
 import java.util.Arrays;
